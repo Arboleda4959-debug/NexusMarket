@@ -1,0 +1,9 @@
+2026-08-25T21:46:54.015Z [INFO] ----------------------invoke appmod-install-maven----------------------
+2026-08-25T21:46:54.016Z [INFO] [Tool.invoke]({name: appmod-install-maven, modelId: auto, input: {
+  "version": "3.9.15",
+  "dest": "C:\\Users\\acced\\.maven",
+  "projectPath": "c:\\Users\\acced\\Desktop\\1NexusMarket_Domain_Foundation_v2"
+}}).
+2026-08-25T21:46:54.016Z [INFO] [Tool.invoke] do invoke.
+2026-08-25T21:47:55.339Z [ERROR] [Tool.invoke] error occurs when invoking tool appmod-install-maven: TypeError: terminated.
+2026-08-25T21:47:55.340Z [INFO] ----------------------invoked appmod-install-maven----------------------
