@@ -1,0 +1,6 @@
+services:
+  nexusmarket:
+    image: nexusmarket:1.0
+    build:
+      context: .
+      dockerfile: Dockerfile
