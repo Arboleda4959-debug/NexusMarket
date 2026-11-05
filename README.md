@@ -1,154 +1,155 @@
 # NexusMarket
 
-NexusMarket is the marketplace system selected for the Software Construction 2 semester project.
+### Domain-Driven Marketplace Platform
 
-## Current implementation scope
+A marketplace software engineering project developed with Java 17 and Maven, applying Domain-Driven Design (DDD) and Hexagonal Architecture principles.
 
-This repository establishes the **Domain foundation** required for the project:
+**Project focus:** Domain modeling, business rules, domain services and software architecture.
 
-- Domain Models
-- Value Objects
-- Domain Exceptions
-- Domain Services
-- Domain-oriented validation
-- Initial package structure for Hexagonal Architecture / Ports and Adapters
+---
 
-The implementation is intentionally independent of REST, HTTP, JSON, SQL, JPA, MongoDB, Spring, and other infrastructure technologies.
+## About the Project
 
-## Domain Models
+NexusMarket is a marketplace platform designed to represent the core business operations of an e-commerce ecosystem.
 
-User, Buyer, Seller, Product, Warehouse, Inventory, Cart, CartItem, Order, OrderItem,
-Payment, Invoice, Shipment, Return, Refund, Operation, AuditLog.
+The project focuses on building a well-structured domain foundation, separating business logic from infrastructure and external technologies.
 
-## Value Objects
+It was initially developed as part of the Software Construction II university course and is being used as a foundation for further software engineering improvements.
 
-Email, Money, Quantity, ProductPrice, OrderTotal, TrackingCode,
-ContactInformation, Address, UserRole, UserStatus, SellerStatus, ProductStatus,
-WarehouseStatus, InventoryQuantity, CartStatus, OrderStatus, PaymentStatus,
-ShipmentStatus, ReturnStatus, RefundStatus, OperationType, AuditSeverity.
+## Architecture
 
-## Domain Exceptions
+The project follows Hexagonal Architecture principles:
 
-The domain contains a general `DomainException` used by domain services
-to represent violations of domain rules and invalid domain operations.
+- Domain: Business models, value objects, exceptions and domain services.
+- Adapters: Components responsible for communicating with external systems.
+- Infrastructure: Technical implementations and infrastructure concerns.
 
-## Domain Services
+The main architectural principle is dependency direction: business rules should remain independent of external technologies.
 
-The project contains domain services organized according to their responsibility.
+## Domain Modules
 
-### Authorization
+The domain is organized around the following business areas:
 
-- ValidateUserAuthorizationService
-- ValidateSellerAuthorizationService
-- ValidateSellerResourceAuthorizationService
-- ValidateSellerInventoryAuthorizationService
-- ValidateProductOwnershipService
-- ValidateWarehouseOwnershipService
-- ValidateBuyerCartAuthorizationService
-- ValidateBuyerOrderAuthorizationService
-- ValidateBuyerResourceAuthorizationService
+| Module | Responsibility |
+|---|---|
+| Authorization | User and resource authorization |
+| Cart | Shopping cart operations |
+| Inventory | Stock availability and reservations |
+| Orders | Order business rules |
+| Payments | Payment validation |
+| Returns | Return validation |
+| Refunds | Refund validation |
+| Shipments | Shipment validation |
 
-### Cart
+## Domain Concepts
 
-- CalculateCartTotalService
-- ValidateCartStatusService
+The project includes domain models such as:
 
-### Inventory
+- User
+- Buyer
+- Seller
+- Product
+- Warehouse
+- Inventory
+- Cart
+- Order
+- Payment
+- Shipment
+- Return
+- Refund
 
-- ValidateInventoryAvailabilityService
-- ValidateInventoryOwnershipService
-- ValidateReservedInventoryService
-- ReserveInventoryService
-- ReleaseInventoryReservationService
+It also uses Value Objects to represent concepts such as Money, Email, Quantity, Address and domain statuses.
 
-### Order
+## Technology Stack
 
-- ValidateOrderStatusTransitionService
-
-### Payment
-
-- ValidatePaymentOrderService
-- ValidatePaymentStatusService
-
-### Return
-
-- ValidateReturnOrderService
-- ValidateReturnStatusService
-
-### Refund
-
-- ValidateRefundReturnService
-- ValidateRefundStatusService
-
-### Shipment
-
-- ValidateShipmentOrderService
-- ValidateShipmentStatusService
-
-## Domain Rules Represented
-
-The domain currently represents rules related to:
-
-- Inventory quantities cannot be negative.
-- Inventory tracks available and reserved quantities.
-- Inventory availability is validated before a reservation.
-- Inventory reservations can be released only when sufficient reserved inventory exists.
-- Products and warehouses are associated with their corresponding seller.
-- Inventory is associated with a product and warehouse.
-- Buyers can operate only on their own cart and orders.
-- Sellers can operate only on their own resources.
-- Users must be authorized according to their domain status.
-- Cart status is validated before operations.
-- Cart totals are calculated from its items.
-- Payments must belong to the corresponding order.
-- Payment status must be valid.
-- Returns must belong to the corresponding order.
-- Refunds must belong to the corresponding return.
-- Shipments must belong to the corresponding order.
-- Shipment status must be valid.
-- Refund status must be valid.
-- Order status transitions are validated through a dedicated domain service.
-
-## Architecture Direction
-
-The project follows the architecture described for the course:
-
-Application
-- Adapters
-- Domain
-- Infrastructure
-
-Dependencies must point toward the Domain.
-
-The Domain must not depend on adapters or infrastructure.
-
-The current Domain layer contains:
-
-- Models
-- Value Objects
-- Exceptions
-- Domain Services
-- Input and Output Ports structure
-
-The Domain remains independent from REST, HTTP, JSON, SQL, JPA,
-MongoDB, Spring and other infrastructure technologies.
+- Java 17
+- Apache Maven
+- JUnit 5
+- Git
+- GitHub
+- Domain-Driven Design
+- Hexagonal Architecture
 
 ## Project Structure
 
 ```text
-src/main/java/application/domain
-├── exceptions
-├── models
-├── ports
-│   ├── in
-│   └── out
-├── services
-│   ├── authorization
-│   ├── cart
-│   ├── inventory
-│   ├── order
-│   ├── payment
-│   ├── refunds
-│   ├── return
-│   └── shipment
-└── valueobjects
+NexusMarket/
+├── src/
+│   ├── main/
+│   │   └── java/
+│   │       └── application/
+│   │           ├── domain/
+│   │           │   ├── exceptions/
+│   │           │   ├── models/
+│   │           │   ├── ports/
+│   │           │   ├── services/
+│   │           │   └── valueobjects/
+│   │           ├── adapters/
+│   │           └── infrastructure/
+│   └── test/
+├── pom.xml
+├── README.md
+└── .gitignore
+```
+
+## Getting Started
+
+### Requirements
+
+- Java Development Kit (JDK) 17
+- Apache Maven 3.9+
+- Git
+
+### Clone the repository
+
+```bash
+git clone https://github.com/Arboleda4959-debug/NexusMarket.git
+```
+
+### Enter the project directory
+
+```bash
+cd NexusMarket
+```
+
+### Build the project
+
+```bash
+mvn clean compile
+```
+
+### Run tests
+
+```bash
+mvn test
+```
+
+## Engineering Principles
+
+The project is developed with a focus on:
+
+- Domain-Driven Design.
+- Hexagonal Architecture.
+- Separation of Concerns.
+- Object-Oriented Programming.
+- Maintainability.
+- Clear business rules.
+
+## Project Status
+
+The repository contains the initial domain foundation and architectural structure.
+
+Further development and improvements are part of the project's ongoing evolution.
+
+## Author
+
+**Andrés Felipe Arboleda**
+
+Software Engineering Student  
+Medellín, Colombia
+
+[GitHub Profile](https://github.com/Arboleda4959-debug)
+
+---
+
+*Building today. Engineering tomorrow.*
