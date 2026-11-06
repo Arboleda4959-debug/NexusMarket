@@ -1,4 +1,5 @@
 # NexusMarket
+![NexusMarket CI](https://github.com/Arboleda4959-debug/NexusMarket/actions/workflows/maven.yml/badge.svg)
 ### Domain-Driven Marketplace Platform
 
 NexusMarket is a marketplace software engineering project built with **Java 17 and Maven**, applying Domain-Driven Design (DDD) and Hexagonal Architecture principles.
