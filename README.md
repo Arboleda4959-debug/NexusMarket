@@ -1,118 +1,99 @@
 # NexusMarket
-
 ### Domain-Driven Marketplace Platform
 
-A marketplace software engineering project developed with Java 17 and Maven, applying Domain-Driven Design (DDD) and Hexagonal Architecture principles.
+NexusMarket is a marketplace software engineering project built with **Java 17 and Maven**, applying Domain-Driven Design (DDD) and Hexagonal Architecture principles.
 
-**Project focus:** Domain modeling, business rules, domain services and software architecture.
-
----
+The project focuses on domain modeling, business rules, domain services and maintainable software architecture.
 
 ## About the Project
 
-NexusMarket is a marketplace platform designed to represent the core business operations of an e-commerce ecosystem.
+NexusMarket explores the design of a marketplace platform that represents core e-commerce business operations.
 
-The project focuses on building a well-structured domain foundation, separating business logic from infrastructure and external technologies.
+Its main objective is to establish a structured domain foundation, keeping business logic independent from infrastructure and external technologies.
 
-It was initially developed as part of the Software Construction II university course and is being used as a foundation for further software engineering improvements.
+The project originated in the Software Construction II university course and continues to evolve as a software engineering learning project.
 
 ## Architecture
 
-The project follows Hexagonal Architecture principles:
+The project is organized around Hexagonal Architecture principles:
 
-- Domain: Business models, value objects, exceptions and domain services.
-- Adapters: Components responsible for communicating with external systems.
-- Infrastructure: Technical implementations and infrastructure concerns.
+- **Domain:** Business models, value objects, domain exceptions and domain services.
+- **Adapters:** Components that connect the application with external systems.
+- **Infrastructure:** Technical implementations and infrastructure-related concerns.
 
-The main architectural principle is dependency direction: business rules should remain independent of external technologies.
+The architectural goal is to protect business rules from dependencies on external technologies.
 
 ## Domain Modules
 
-The domain is organized around the following business areas:
+The domain foundation is organized into the following business areas:
 
 | Module | Responsibility |
 |---|---|
 | Authorization | User and resource authorization |
-| Cart | Shopping cart operations |
+| Cart | Shopping cart business rules |
 | Inventory | Stock availability and reservations |
-| Orders | Order business rules |
+| Orders | Order-related business rules |
 | Payments | Payment validation |
-| Returns | Return validation |
-| Refunds | Refund validation |
-| Shipments | Shipment validation |
+| Returns | Return-related validation |
+| Refunds | Refund-related validation |
+| Shipments | Shipment-related validation |
 
-## Domain Concepts
+## Domain Model
 
-The project includes domain models such as:
+The project models marketplace concepts such as:
 
-- User
-- Buyer
-- Seller
-- Product
-- Warehouse
+- Users, buyers and sellers
+- Products and warehouses
 - Inventory
-- Cart
-- Order
-- Payment
-- Shipment
-- Return
-- Refund
+- Shopping carts
+- Orders
+- Payments
+- Returns and refunds
+- Shipments
 
-It also uses Value Objects to represent concepts such as Money, Email, Quantity, Address and domain statuses.
+Value Objects are used to represent domain concepts where appropriate.
 
 ## Technology Stack
 
 - Java 17
 - Apache Maven
-- JUnit 5
-- Git
-- GitHub
-- Domain-Driven Design
+- Git and GitHub
+- Domain-Driven Design (DDD)
 - Hexagonal Architecture
 
 ## Project Structure
 
 ```text
-NexusMarket/
-├── src/
-│   ├── main/
-│   │   └── java/
-│   │       └── application/
-│   │           ├── domain/
-│   │           │   ├── exceptions/
-│   │           │   ├── models/
-│   │           │   ├── ports/
-│   │           │   ├── services/
-│   │           │   └── valueobjects/
-│   │           ├── adapters/
-│   │           └── infrastructure/
-│   └── test/
-├── pom.xml
-├── README.md
-└── .gitignore
+src/
+└── main/
+    └── java/
+        └── application/
+            ├── domain/
+            │   ├── exceptions/
+            │   ├── models/
+            │   ├── ports/
+            │   ├── services/
+            │   └── valueobjects/
+            ├── adapters/
+            └── infrastructure/
 ```
 
 ## Getting Started
 
 ### Requirements
 
-- Java Development Kit (JDK) 17
-- Apache Maven 3.9+
+- JDK 17
+- Apache Maven
 - Git
 
 ### Clone the repository
 
 ```bash
 git clone https://github.com/Arboleda4959-debug/NexusMarket.git
-```
-
-### Enter the project directory
-
-```bash
 cd NexusMarket
 ```
 
-### Build the project
+### Compile the project
 
 ```bash
 mvn clean compile
@@ -126,25 +107,20 @@ mvn test
 
 ## Engineering Principles
 
-The project is developed with a focus on:
-
-- Domain-Driven Design.
-- Hexagonal Architecture.
-- Separation of Concerns.
-- Object-Oriented Programming.
-- Maintainability.
-- Clear business rules.
+- Domain-Driven Design
+- Hexagonal Architecture
+- Separation of Concerns
+- Object-Oriented Programming
+- Maintainability
+- Explicit business rules
 
 ## Project Status
 
-The repository contains the initial domain foundation and architectural structure.
-
-Further development and improvements are part of the project's ongoing evolution.
+NexusMarket is an evolving software engineering project. Its current focus is the domain foundation, business rules and architectural organization.
 
 ## Author
 
-**Andrés Felipe Arboleda**
-
+**Andrés Felipe Arboleda**  
 Software Engineering Student  
 Medellín, Colombia
 
