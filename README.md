@@ -23,6 +23,7 @@ The project is organized around Hexagonal Architecture principles:
 - **Infrastructure:** Technical implementations and infrastructure-related concerns.
 
 The architectural goal is to protect business rules from dependencies on external technologies.
+For more details, see the [Architecture Documentation](docs/ARCHITECTURE.md).
 
 ## Domain Modules
 
